@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kittl Editor Expert Spoofer
-// @version      1.0.0
-// @description  Hook fetch and modify JSON responses on Kittl Editor
+// @version      1.0.1
+// @description  we don't like paywalls
 // @author       danthekidd
 // @match        https://kittl.com/*
 // @match        https://www.kittl.com/*
@@ -36,11 +36,10 @@ window.fetch = function(input, init) {
                         data.profile.uploadSpaceLimitReached = false;
                         data.profile.email = "user@kittl.com"; // gives some admin-only beta features
 
-                        console.log(data);
+
 
                     } else if ("profile" in data) {
                         data.profile.email = "user@kittl.com"; // gives some admin-only beta features
-                        console.log(data);
 
                     }
                 }
