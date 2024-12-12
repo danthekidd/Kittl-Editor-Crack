@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Kittl Editor Expert Spoofer
-// @version      0.1
+// @version      1.0.0
 // @description  Hook fetch and modify JSON responses on Kittl Editor
 // @author       danthekidd
 // @match        https://kittl.com/*
@@ -8,6 +8,7 @@
 // @match        https://app.kittl.com/*
 // @run-at       document-start
 // @icon         https://app.kittl.com/favicon.ico
+// @updateURL    https://github.com/danthekidd/Kittl-Editor-Crack/raw/refs/heads/main/Kittl%20Editor%20Expert%20Spoofer.user.js
 // @grant        none
 // ==/UserScript==
 
