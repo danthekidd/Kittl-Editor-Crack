@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Kittl Editor Expert Spoofer
+// @name         Kittl Editor Crack
 // @version      1.0.1
 // @description  we don't like paywalls
 // @author       danthekidd
