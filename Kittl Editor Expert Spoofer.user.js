@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Kittl Editor Crack
-// @version      1.0.1
+// @version      2.0.0
 // @description  we don't like paywalls
 // @author       danthekidd
 // @match        https://kittl.com/*
@@ -22,16 +22,14 @@ window.fetch = function(input, init) {
                 if (typeof data === 'object' && data !== null) {
                     if ("plan" in data && "profile" in data) {
                         data.plan = planLevel;
-                        data.credits.generation.balance = 9999;
-                        data.designsLimit = 9999;
+                        data.designsLimit = 0;
                         data.designsLimitReached = false;
                         data.uploadSpaceLimitReached = false;
                         data.email = "user@kittl.com"; // gives some admin-only beta features
 
 
                         data.profile.plan = planLevel;
-                        data.profile.credits.generation.balance = 9999;
-                        data.profile.designsLimit = 9999;
+                        data.profile.designsLimit = 0;
                         data.profile.designsLimitReached = false;
                         data.profile.uploadSpaceLimitReached = false;
                         data.profile.email = "user@kittl.com"; // gives some admin-only beta features
@@ -41,6 +39,8 @@ window.fetch = function(input, init) {
                     } else if ("profile" in data) {
                         data.profile.email = "user@kittl.com"; // gives some admin-only beta features
 
+                    } else if ("data" in data && "extraTotal" in data.data) {
+                        data.data.extraTotal = 9999;
                     }
                 }
                 const modifiedResponse = new Response(JSON.stringify(data), {
