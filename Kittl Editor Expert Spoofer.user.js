@@ -13,6 +13,7 @@
 
 const planLevel = "EXPERT";
 
+window.setTimeout(()=>{
 webpackChunk_repo_editor.push([
     [Math.random()],
     {},
@@ -21,8 +22,9 @@ webpackChunk_repo_editor.push([
         if (component && typeof component.setState === 'function') {
             component.setState(prevState => ({
                 user: {
-                    ...prevState.user,
-                    plan: planLevel
+                    ...(prevState.user || {}),
+                    plan: planLevel,
+                    email: "user@kittl.com",
                 }
             }));
             console.log(`User plan set to ${planLevel}`);
@@ -31,4 +33,4 @@ webpackChunk_repo_editor.push([
         }
     },
 ]);
-
+},2000)
