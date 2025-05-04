@@ -6,7 +6,6 @@
 // @match        https://kittl.com/*
 // @match        https://www.kittl.com/*
 // @match        https://app.kittl.com/*
-// @run-at       document-end
 // @icon         https://app.kittl.com/favicon.ico
 // @updateURL    https://github.com/danthekidd/Kittl-Editor-Crack/raw/refs/heads/main/Kittl%20Editor%20Expert%20Spoofer.user.js
 // @grant        none
