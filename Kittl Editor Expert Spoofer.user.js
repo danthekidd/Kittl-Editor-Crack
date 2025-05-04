@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Kittl Editor Crack
-// @version      3.0.0
+// @version      3.1.0
 // @description  we don't like paywalls
 // @author       danthekidd
 // @match        https://kittl.com/*
@@ -13,24 +13,30 @@
 
 const planLevel = "EXPERT";
 
-window.setTimeout(()=>{
 webpackChunk_repo_editor.push([
     [Math.random()],
     {},
     req => {
-        const component = req(13594).k;
-        if (component && typeof component.setState === 'function') {
-            component.setState(prevState => ({
-                user: {
-                    ...(prevState.user || {}),
-                    plan: planLevel,
-                    email: "user@kittl.com",
+        const store = req(13594).k;
+
+        if (store && typeof store.subscribe === 'function') {
+            store.subscribe(() => {
+                const current = store.getState();
+                const email = current?.user?.email;
+                const currentPlan = current?.user?.plan;
+
+                if (currentPlan !== "EXPERT" && email) {
+                    store.setState(prev => ({
+                        user: {
+                            ...(prev.user || {}),
+                            plan: "EXPERT"
+                        }
+                    }));
+                    console.log("Plan forced to EXPERT");
                 }
-            }));
-            console.log(`User plan set to ${planLevel}`);
+            });
         } else {
-            console.error("setState not found on component");
+            console.error("Expected store with subscribe/getState/setState");
         }
     },
 ]);
-},2000)
